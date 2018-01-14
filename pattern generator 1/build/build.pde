@@ -10,7 +10,8 @@ import hype.interfaces.*;
 
 
 void setup() {
-	
+	size(500,1000);
+	background(255,255,255);
 }
 
 void draw() {
