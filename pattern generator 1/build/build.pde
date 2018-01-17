@@ -33,7 +33,8 @@ void setup() {
 	pool
 		.autoAddToStage()
 		
-		.add(new HRect(76))
+		.add(new HRect()) // Rectangles with corners, weighted 10X
+		//.add(new HRect().rounding(10)) // Rectangles with rounded corners, not weighted
 
 		.layout(
 			new HGridLayout()
@@ -54,6 +55,7 @@ void setup() {
 						.size( 50 + ( (int)random(2 * 25) ) )
 						.fill(colours.getColor())
 						.alpha( (int)random(50,200) )
+						.rotate( 362 - (int)random(4) )
 					;
 				}
 
