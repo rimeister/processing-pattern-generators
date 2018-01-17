@@ -28,7 +28,7 @@ void setup() {
 	H.init(this).background(#ffffff);
 	smooth();
 
-	pool = new HDrawablePool(100);
+	pool = new HDrawablePool(150);
 
 	pool
 		.autoAddToStage()
@@ -39,7 +39,7 @@ void setup() {
 			new HGridLayout()
 			.startX(38)
 			.startY(38)
-			.spacing(38,38)
+			.spacing(76,76)
 			.cols(12)
 		)
 
@@ -51,7 +51,7 @@ void setup() {
 						.anchorAt(H.CENTER)
 						.rotate( (int)random(4) * 90)
 						.noStroke()
-						.size( 50 + ( (int)random(2 * 50) ) ) // 50, 100
+						.size( 50 + ( (int)random(2 * 25) ) )
 						.fill(colours.getColor())
 						.alpha( (int)random(50,200) )
 					;
