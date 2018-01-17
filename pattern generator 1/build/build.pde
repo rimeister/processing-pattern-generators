@@ -32,7 +32,9 @@ void setup() {
 
 	pool
 		.autoAddToStage()
+		
 		.add(new HRect(76))
+
 		.layout(
 			new HGridLayout()
 			.startX(38)
@@ -48,9 +50,11 @@ void setup() {
 					d
 						.anchorAt(H.CENTER)
 						.rotate( (int)random(4) * 90)
+						.noStroke()
 						.size( 50 + ( (int)random(2 * 50) ) ) // 50, 100
+						.fill(colours.getColor())
+						.alpha( (int)random(50,200) )
 					;
-					d.fill(colours.getColor());
 				}
 
 			}
