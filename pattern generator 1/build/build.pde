@@ -15,9 +15,6 @@ HDrawablePool pool;
 HColorPool colours;
 
 void setup() {
-	size(500,1000);
-	H.init(this).background(#ffffff);
-	smooth();
 
 	colours = new HColorPool()
 		.add(#ff0084)
@@ -26,8 +23,42 @@ void setup() {
 		.add(#1a9a8b)
 		.add(#a9f27f)
 	;
-}
 
-void draw() {
-	
+	size(500,1000);
+	H.init(this).background(#ffffff);
+	smooth();
+
+	pool = new HDrawablePool(100);
+
+	pool
+		.autoAddToStage()
+		.add(new HRect(76))
+		.layout(
+			new HGridLayout()
+			.startX(38)
+			.startY(38)
+			.spacing(38,38)
+			.cols(12)
+		)
+
+		.onCreate(
+			new HCallback() {
+				public void run(Object obj) {
+					HRect d = (HRect) obj;
+					d
+						.anchorAt(H.CENTER)
+						.rotate( (int)random(4) * 90)
+						.size( 50 + ( (int)random(2 * 50) ) ) // 50, 100
+					;
+					d.fill(colours.getColor());
+				}
+
+			}
+		)
+
+		.requestAll()
+	;
+
+	H.drawStage();
+
 }
