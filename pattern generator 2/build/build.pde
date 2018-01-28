@@ -3,6 +3,7 @@ import hype.extended.behavior.*;
 import hype.extended.colorist.*;
 import hype.extended.layout.*;
 import hype.interfaces.*;
+import processing.pdf.*;
 
 /***********************************/
 /******* Pattern Generator 2 *******/
@@ -83,5 +84,26 @@ void setup() {
 
 	;
 
+	saveVector();
+	noLoop();
+
+}
+
+void draw() {
 	H.drawStage();
+}
+
+
+// Function for saving graphics as vectors in a PDF
+void saveVector() {
+	PGraphics tmp = null;
+	tmp = beginRecord(PDF, "render.pdf");
+
+	if (tmp == null) {
+		H.drawStage();
+	} else {
+		H.stage().paintAll(tmp, false, 1); // PGraphics, uses3D
+	}
+
+	endRecord();
 }
