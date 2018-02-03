@@ -48,8 +48,8 @@ void setup() {
 							}
 
 							rotate( radians(rotateDeg) );
-							println(rotateDeg);
-							fill(0,0,0);
+							fill( random(255), random(255), 255, random(255));
+							noStroke();
 							triangle(0, 0, 0, tileHeight/2, tileWidth/2, tileHeight/2);
 
 						popMatrix();
