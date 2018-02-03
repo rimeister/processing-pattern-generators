@@ -1,6 +1,7 @@
 void setup() {
 
 	size(500,1000);
+	background(255,255,255);
 	
 	int tileWidth = 100;
 	int tileHeight = 100;
@@ -22,15 +23,21 @@ void setup() {
 
 						pushMatrix();
 
-							translate(l*tileWidth/2,k*tileHeight/2);
+							//0,0
+							//tileWidth/2,0
+							//tileWidth/2,tileHeight/2
+							//0,tileHeight/2
+
+							translate(l*tileWidth,k*tileHeight);
 
 							int rotateDeg = 0;
 
 							if (rotateCounter > 0) {
-								rotateDeg = 360/rotateCounter;
+								rotateDeg = 90*rotateCounter;
 							}
 
-							//rotate( radians(rotateDeg) );
+							rotate( radians(rotateDeg) );
+							println(rotateDeg);
 							fill(0,0,0);
 							triangle(0, 0, 0, tileHeight/2, tileWidth/2, tileHeight/2);
 
