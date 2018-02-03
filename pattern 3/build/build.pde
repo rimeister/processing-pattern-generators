@@ -5,6 +5,9 @@ void setup() {
 	
 	int tileWidth = 100;
 	int tileHeight = 100;
+	color[] colourPalette = {#1a2139,#333e5b,#798190,#f73a18};
+
+	println(colourPalette.length);
 
 	for (int i = 0; i < height/tileHeight; i++) {
 
@@ -48,8 +51,10 @@ void setup() {
 							}
 
 							rotate( radians(rotateDeg) );
-							println(rotateDeg);
-							fill(0,0,0);
+							
+							noStroke();
+							fill(colourPalette[rotateCounter]);
+
 							triangle(0, 0, 0, tileHeight/2, tileWidth/2, tileHeight/2);
 
 						popMatrix();
