@@ -1,3 +1,5 @@
+import processing.pdf.*;
+
 void setup() {
 
 	size(500,1000);
@@ -6,6 +8,8 @@ void setup() {
 	int tileWidth = 50;
 	int tileHeight = 50;
 	color[] colourPalette = {#1a2139,#333e5b,#798190,#f73a18};
+
+	beginRecord(PDF, "render.pdf");
 
 	// Nested for loops to draw rows of tiles
 	for (int i = 0; i < height/tileHeight; i++) {
@@ -58,8 +62,8 @@ void setup() {
 							// Remove default stroke
 							noStroke(); 
 
-							// Set fill to colour for current triangle
-							fill(colourPalette[rotateCounter]);
+							// Set fill to colour for current triangle with a random colour from the palette
+							fill( randomColour(colourPalette) );
 
 							// Create the triangle
 							triangle(0, 0, 0, tileHeight/2, tileWidth/2, tileHeight/2);
@@ -78,4 +82,15 @@ void setup() {
 
 	}
 
+	endRecord();
+	
 }
+
+// Return a random colour from the palette
+color randomColour(color[] palette) {
+	int randomIndex = (int)random(0, palette.length);
+	color randColour = palette[randomIndex];
+	return randColour;
+}
+
+
