@@ -23,12 +23,23 @@ void setup() {
 
 						pushMatrix();
 
-							//0,0
-							//tileWidth/2,0
-							//tileWidth/2,tileHeight/2
-							//0,tileHeight/2
+							// Translations needed to rotate triangles
+							// Tile 1: 0,0
+							// Tile 2: tileWidth,0
+							// Tile 3: tileWidth,tileHeight
+							// Tile 4: 0,tileHeight
 
-							translate(l*tileWidth,k*tileHeight);
+							if (rotateCounter < 2) {
+								// squares 1, 2
+								translate(l*tileWidth,k*tileHeight);
+
+							} else if (rotateCounter == 2) {
+								// square 3
+								translate(tileWidth,tileHeight);								
+							} else {
+								// square 4
+								translate(0,tileHeight);
+							}
 
 							int rotateDeg = 0;
 
