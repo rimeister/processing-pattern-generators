@@ -62,8 +62,8 @@ void setup() {
 							// Remove default stroke
 							noStroke(); 
 
-							// Set fill to colour for current triangle
-							fill(colourPalette[rotateCounter]);
+							// Set fill to colour for current triangle with a random colour from the palette
+							fill( randomColour(colourPalette) );
 
 							// Create the triangle
 							triangle(0, 0, 0, tileHeight/2, tileWidth/2, tileHeight/2);
