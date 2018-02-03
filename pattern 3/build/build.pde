@@ -21,8 +21,8 @@ void setup() {
 					for (int l = 0; l < 2; l++) {
 
 						pushMatrix();
-						
-							translate(l*tileWidth,k*tileHeight);
+
+							translate(l*tileWidth/2,k*tileHeight/2);
 
 							int rotateDeg = 0;
 
@@ -30,9 +30,9 @@ void setup() {
 								rotateDeg = 360/rotateCounter;
 							}
 
-							rotate( radians(rotateDeg) );
+							//rotate( radians(rotateDeg) );
 							fill(0,0,0);
-							triangle(0, 0, 0, tileHeight/4, tileWidth/4, tileHeight/4);
+							triangle(0, 0, 0, tileHeight/2, tileWidth/2, tileHeight/2);
 
 						popMatrix();
 
