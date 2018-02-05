@@ -28,7 +28,17 @@ void setup() {
 
 				translate(j*tileWidth,i*tileHeight);
 
-				shape(tile, 0, 0, tileWidth, tileHeight);
+				int tileXPosition = 0;
+
+				if (j%2 != 0) {
+					scale(-1.0, 1.0);
+					tileXPosition = -tileWidth;
+				}
+
+				println("j val is "+j+". tilexpos = "+tileXPosition);
+
+
+				shape(tile, tileXPosition, 0, tileWidth, tileHeight);
 
 			popMatrix();
 			
