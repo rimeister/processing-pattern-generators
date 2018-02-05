@@ -5,23 +5,28 @@ PShape tile;
 int tileWidth = 100;
 int tileHeight = 100;
 
+//color[] colourPalette = {#1a2139,#1a2139,#1a2139,#333e5b,#798190,#f73a18};
+color[] colourPalette = {#333e5b,#333e5b,#333e5b,#3e94b2,#e78d1e};
+
+
 void setup() {
 
-	size(500,1000);
+	size(1000,1000);
 
-	background(255,255,255);
+	color bgColour = #798190;
+
+	background(bgColour);
 
 	beginRecord(PDF, "renders/render.pdf"); // Begin recording PDF
 
 	tile = loadShape("anchor_tile.svg");
 
+	tile.disableStyle();
+
 	// Nested for loops to draw rows of tiles
 	for (int i = 0; i < height/tileHeight; i++) {
 
 		for (int j = 0; j < width/tileWidth; j++) {
-			
-			// Counter to track which of the four rotated triangles we're currently on
-			int rotateCounter = 0; 
 			
 			// Push/pop matrix for tile repitition
 			pushMatrix();
@@ -44,6 +49,10 @@ void setup() {
 
 				}
 
+				noStroke();
+
+				fill( randomColour(colourPalette) );
+
 				shape(tile, tileXPosition, tileYPosition, tileWidth, tileHeight);
 
 			popMatrix();
@@ -54,4 +63,11 @@ void setup() {
 
 	endRecord(); // End recording PDF
 
+}
+
+// Return a random colour from the palette
+color randomColour(color[] palette) {
+	int randomIndex = (int)random(0, palette.length);
+	color randColour = palette[randomIndex];
+	return randColour;
 }
