@@ -13,7 +13,7 @@ void setup() {
 
 	size(1000,1000);
 
-	color bgColour = #798190;
+	color bgColour = #B3C9CE;
 
 	background(bgColour);
 
