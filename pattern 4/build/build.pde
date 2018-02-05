@@ -29,16 +29,22 @@ void setup() {
 				translate(j*tileWidth,i*tileHeight);
 
 				int tileXPosition = 0;
+				int tileYPosition = 0;
 
-				if (j%2 != 0) {
+				if (j%2 != 0 && i%2 == 0) {
+					// Flip on X axis
 					scale(-1.0, 1.0);
 					tileXPosition = -tileWidth;
 				}
 
-				println("j val is "+j+". tilexpos = "+tileXPosition);
+				if (j%2 == 0 && i%2 != 0) {
+					// Flip on Y axis
+					scale(1.0, -1.0);
+					tileYPosition = -tileHeight;
 
+				}
 
-				shape(tile, tileXPosition, 0, tileWidth, tileHeight);
+				shape(tile, tileXPosition, tileYPosition, tileWidth, tileHeight);
 
 			popMatrix();
 			
